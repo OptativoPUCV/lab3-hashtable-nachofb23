@@ -83,3 +83,14 @@ hashmap.c:98:10: error: ‘*map.buckets’ may be used uninitialized [-Werror=ma
 cc1: all warnings being treated as errors
 Compilation failed
 68ef0bc
+Thu 07 Sep 2023 04:17:04 PM UTC: 
+ hashmap.c | 14 ++++----------
+ 1 file changed, 4 insertions(+), 10 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘createMap’:
+hashmap.c:92:10: error: ‘*map.buckets’ may be used uninitialized [-Werror=maybe-uninitialized]
+   92 |   if (map->buckets == NULL) {
+      |       ~~~^~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+018bf27
