@@ -89,6 +89,8 @@ HashMap * createMap(long capacity) {
       exit(EXIT_FAILURE);
     }
 
+  map->buckets = (Pair**)malloc(sizeof(Pair*) * capacity);
+
   if (map->buckets == NULL) {
         perror("Error al alocar memoria para el arreglo de pares");
         exit(EXIT_FAILURE);
