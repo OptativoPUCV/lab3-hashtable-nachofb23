@@ -90,28 +90,11 @@ void enlarge(HashMap * map) {
 HashMap * createMap(long capacity) {
   HashMap* map = (HashMap*)malloc(sizeof(HashMap));
 
-    if (map == NULL) {
+   if (map == NULL) {
         perror("Error al alocar memoria para la tabla de hash");
         exit(EXIT_FAILURE);
     }
-
-    // Alocar memoria para el arreglo de punteros a pares
-    map->buckets = (Pair**)malloc(sizeof(Pair*) * capacity);
-
-    if (map->buckets == NULL) {
-        perror("Error al alocar memoria para el arreglo de pares");
-        exit(EXIT_FAILURE);
-    }
-
-    // Inicializar las entradas de la tabla
-    for (long i = 0; i < capacity; i++) {
-        map->buckets[i] = NULL;
-    }
-
-    // Establecer la capacidad de la tabla y otras propiedades
-    map->capacity = capacity;
-    map->size = 0;
-    map->current = -1;
+  
 
     return map;
 }
