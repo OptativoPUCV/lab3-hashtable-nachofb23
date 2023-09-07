@@ -1,0 +1,16 @@
+Thu 07 Sep 2023 03:27:09 PM UTC: 
+ hashmap.c | 24 +++++++++++++++++++++++-
+ 1 file changed, 23 insertions(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘createMap’:
+hashmap.c:63:8: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘table’
+   63 |     map->table = (Pair**)malloc(sizeof(Pair*) * capacity);
+      |        ^~
+hashmap.c:65:12: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘table’
+   65 |     if (map->table == NULL) {
+      |            ^~
+hashmap.c:72:12: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘table’
+   72 |         map->table[i] = NULL;
+      |            ^~
+Compilation failed
+ff9c043

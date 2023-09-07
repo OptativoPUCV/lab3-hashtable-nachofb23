@@ -52,8 +52,30 @@ void enlarge(HashMap * map) {
 
 
 HashMap * createMap(long capacity) {
+  HashMap* map = (HashMap*)malloc(sizeof(HashMap));
 
-    return NULL;
+    if (map == NULL) {
+        perror("Error al alocar memoria para la tabla de hash");
+        exit(EXIT_FAILURE);
+    }
+
+    // Alocar memoria para el arreglo de punteros a entradas
+    map->table = (Pair**)malloc(sizeof(Pair*) * capacity);
+
+    if (map->table == NULL) {
+        perror("Error al alocar memoria para el arreglo de punteros");
+        exit(EXIT_FAILURE);
+    }
+
+    // Inicializar las entradas de la tabla
+    for (int i = 0; i < capacity; i++) {
+        map->table[i] = NULL;
+    }
+
+    // Establecer la capacidad de la tabla
+    map->capacity = capacity;
+
+    return map;
 }
 
 void eraseMap(HashMap * map,  char * key) {    
