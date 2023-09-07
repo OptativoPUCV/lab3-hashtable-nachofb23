@@ -99,9 +99,16 @@ HashMap * createMap(long capacity) {
         perror("Error al alocar memoria para el arreglo de pares");
         exit(EXIT_FAILURE);
     }
-  
 
-    return map;
+  for (long i = 0; i < capacity; i++) {
+        map->buckets[i] = NULL;
+    }
+
+  map->capacity = capacity;
+  map->size = 0;
+  map->current = -1;
+  
+  return map;
 }
 
 void eraseMap(HashMap * map,  char * key) {    
