@@ -23,7 +23,7 @@ Pair * createPair( char * key,  void * value) {
     return new;
 }
 
-long hash( char * key, long capacity) {
+long hash(char * key, long capacity) {
     unsigned long hash = 0;
      char * ptr;
     for (ptr = key; *ptr != '\0'; ptr++) {
@@ -45,7 +45,7 @@ void insertMap(HashMap * map, char * key, void * value) {
     }
 
     // Calcular el índice usando la función hash
-    unsigned long index = hash(key) % map->capacity;
+    long index = hash(key, map->capacity);
 
     // Buscar una casilla disponible para insertar el par
     while (map->buckets[index] != NULL && map->buckets[index]->key != NULL) {
