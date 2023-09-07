@@ -20,3 +20,20 @@ Thu 07 Sep 2023 03:28:36 PM UTC:
  tests:  1|5
 total_score: 10/70
 dc0ab9b
+Thu 07 Sep 2023 03:34:02 PM UTC: 
+ hashmap.c | 36 ++++++++++++++++++++++++++++++++++++
+ 1 file changed, 36 insertions(+)
+In file included from test.c:4:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:48:27: error: too few arguments to function ‘hash’
+   48 |     unsigned long index = hash(key) % map->capacity;
+      |                           ^~~~
+hashmap.c:26:6: note: declared here
+   26 | long hash( char * key, long capacity) {
+      |      ^~~~
+hashmap.c: At top level:
+hashmap.c:81:1: error: expected identifier or ‘(’ before ‘}’ token
+   81 | }
+      | ^
+Compilation failed
+5069027
