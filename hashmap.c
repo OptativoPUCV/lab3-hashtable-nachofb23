@@ -59,21 +59,23 @@ HashMap * createMap(long capacity) {
         exit(EXIT_FAILURE);
     }
 
-    // Alocar memoria para el arreglo de punteros a entradas
-    map->table = (Pair**)malloc(sizeof(Pair*) * capacity);
+    // Alocar memoria para el arreglo de punteros a pares
+    map->buckets = (Pair**)malloc(sizeof(Pair*) * capacity);
 
-    if (map->table == NULL) {
-        perror("Error al alocar memoria para el arreglo de punteros");
+    if (map->buckets == NULL) {
+        perror("Error al alocar memoria para el arreglo de pares");
         exit(EXIT_FAILURE);
     }
 
     // Inicializar las entradas de la tabla
-    for (int i = 0; i < capacity; i++) {
-        map->table[i] = NULL;
+    for (long i = 0; i < capacity; i++) {
+        map->buckets[i] = NULL;
     }
 
-    // Establecer la capacidad de la tabla
+    // Establecer la capacidad de la tabla y otras propiedades
     map->capacity = capacity;
+    map->size = 0;
+    map->current = -1;
 
     return map;
 }
