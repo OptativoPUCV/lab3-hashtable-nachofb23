@@ -113,3 +113,14 @@ hashmap.c:120:8: note: declared here
       |        ^~~~
 Compilation failed
 521dab3
+Sat 09 Sep 2023 01:19:50 AM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘searchMap’:
+hashmap.c:120:15: error: implicit declaration of function ‘hashCode’ [-Werror=implicit-function-declaration]
+  120 |   long hash = hashCode(key) % map->capacity;
+      |               ^~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+ad9a96f

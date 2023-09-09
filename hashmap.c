@@ -117,7 +117,7 @@ Pair * searchMap(HashMap * map,  char * key) {
     return NULL;
   }
 
-  long hash = hash(key) % map->capacity;
+  long hash = hashCode(key) % map->capacity;
   int startIndex = hash;
   int currentIndex = startIndex;
 
