@@ -117,29 +117,17 @@ Pair * searchMap(HashMap * map,  char * key) {
     return NULL;
   }
 
-  long hash = hashCode(key) % map->capacity;
-  int startIndex = hash;
-  int currentIndex = startIndex;
+  long index = hash(key, map->capacity);
+  
 
-  while (1) {
-    Pair *currentPair = map->buckets[currentIndex];
-
-    if (currentPair == NULL) {
-      return NULL;
+  while (map->buckets[index] != NULL) {
+    if (map->buckets[index]->key != NULL && strcmp(map->buckets[index]->key, key) == 0) {
+        map->current = index;
+        return map->buckets[index];
     }
-
-    if (currentPair->key != NULL && strcmp(currentPair->key, key) == 0) {
-      map->current = currentIndex;
-      return currentPair;
-    }
-
-    if (currentIndex == startIndex) {
-      return NULL;
-    }
+    index = (index + 1) % map->capacity;
   }
-
-
-    return NULL;
+  return NULL;
 }
 
 Pair * firstMap(HashMap * map) {
