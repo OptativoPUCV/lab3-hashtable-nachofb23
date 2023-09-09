@@ -179,3 +179,16 @@ Sat 09 Sep 2023 02:06:36 AM UTC:
  tests:  16|1
 total_score: 60/70
 c2b79bf
+Sat 09 Sep 2023 02:24:38 AM UTC: 
+ hashmap.c | 26 ++++++++++++++++++++++++++
+ 1 file changed, 26 insertions(+)
+In file included from test.c:4:
+hashmap.c: In function ‘enlarge’:
+hashmap.c:99:45: error: subscripted value is neither array nor pointer nor vector
+   99 |     if (oldBuckets[i] != NULL && oldCapacity[i]->key != NULL) {
+      |                                             ^
+hashmap.c:100:53: error: subscripted value is neither array nor pointer nor vector
+  100 |       insertMap(map, oldBuckets[i]->key, oldCapacity[i]->value);
+      |                                                     ^
+Compilation failed
+56d4ba5
