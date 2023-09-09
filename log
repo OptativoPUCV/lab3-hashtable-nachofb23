@@ -151,3 +151,13 @@ Sat 09 Sep 2023 01:44:25 AM UTC:
  tests:  11|2
 total_score: 50/70
 7e7d0cc
+Sat 09 Sep 2023 01:53:34 AM UTC: 
+ hashmap.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+In file included from test.c:4:
+hashmap.c: In function ‘firstMap’:
+hashmap.c:153:49: error: subscripted value is neither array nor pointer nor vector
+  153 |     if (map->buckets[i] != NULL && map->capacity[i]->key != NULL) {
+      |                                                 ^
+Compilation failed
+d99d551
