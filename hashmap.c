@@ -75,7 +75,7 @@ void insertMap(HashMap * map, char * key, void * value) {
 
 
 void enlarge(HashMap * map) {
-    enlarge_called = 1; //no borrar (testing purposes)
+    enlarge_called = 1; 
 
 
 }
@@ -112,7 +112,31 @@ void eraseMap(HashMap * map,  char * key) {
 
 }
 
-Pair * searchMap(HashMap * map,  char * key) {   
+Pair * searchMap(HashMap * map,  char * key) {  
+  if (map == NULL || key == NULL) {
+    return NULL;
+  }
+
+  long hash = hash(key) % map->capacity;
+  int startIndex = hash;
+  int currentIndex = startIndex;
+
+  while (1) {
+    Pair *currentPair = map->buckets[currentIndex];
+
+    if (currentPair == NULL) {
+      return NULL;
+    }
+
+    if (currentPair->key != NULL && strcmp(currentPair->key, key) == 0) {
+      map->current = currentIndex;
+      return currentPair;
+    }
+
+    if (currentIndex == startIndex) {
+      return NULL;
+    }
+  }
 
 
     return NULL;

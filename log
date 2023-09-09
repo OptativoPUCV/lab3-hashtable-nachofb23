@@ -100,3 +100,16 @@ Thu 07 Sep 2023 04:20:24 PM UTC:
  tests:  5|4
 total_score: 30/70
 c4c7d53
+Sat 09 Sep 2023 01:19:24 AM UTC: 
+ hashmap.c | 26 +++++++++++++++++++++++++-
+ 1 file changed, 25 insertions(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘searchMap’:
+hashmap.c:120:15: error: called object ‘hash’ is not a function or function pointer
+  120 |   long hash = hash(key) % map->capacity;
+      |               ^~~~
+hashmap.c:120:8: note: declared here
+  120 |   long hash = hash(key) % map->capacity;
+      |        ^~~~
+Compilation failed
+521dab3
